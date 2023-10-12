@@ -73,16 +73,50 @@ export class BlogService {
             throw error
         }
     }
-    async getPosts() {
+    async getPosts(queries = [Query.equal("status", "active")]) {
         try {
             return await this.databases.listDocuments(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-            
+                queries
             )
         } catch (error) {
-            throw error
+            console.log(error)
+            return false
         }
+    }
+
+    async uploadFile(file) {
+        try {
+            await this.storage.createFile(
+                config.appwriteBucketId,
+                ID.unique(),
+                file
+            )
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
+    async deleteFile(file_id) {
+        try {
+            await this.storage.deleteFile(
+                config.appwriteBucketId,
+                file_id
+            )
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
+    async getFilePreview (fileId) {
+        return this.storage.getFilePreview(
+            config.appwriteBucketId,
+            fileId
+        )
     }
 }
 
