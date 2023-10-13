@@ -50,6 +50,6 @@ export class AuthService {
     }
 }
 
-export const authservice = new AuthService()
+export const authService = new AuthService()
 
-export default authservice
+export default authService
