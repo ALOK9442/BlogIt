@@ -7,19 +7,20 @@ const logoutBtn = () => {
 
     const dispatch = useDispatch()
 
-    const logoutHandler = (e) =>{
-        authService.logout().then (()=>{
+    const logoutHandler = (e) => {
+        authService.logout().then(() => {
             dispatch(logout())
         })
-        .catch(error) 
+            .catch(error=>
+        {
             console.log(error)
-        
+        })
     }
 
 
-  return (
-    <button>Logout</button>
-  )
+    return (
+        <button>Logout</button>
+    )
 }
 
 export default logoutBtn

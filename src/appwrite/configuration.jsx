@@ -121,4 +121,4 @@ export class BlogService {
 }
 
 const blogService = new BlogService()
-export default BlogService
+export default blogService
