@@ -37,7 +37,7 @@ export class AuthService {
         try{
             return await this.account.get()
         } catch (error) {
-            console.log("appwrite serious get current user error:", error)
+            console.log("appwrite get current user error:", error)
         }
         return null
     }
