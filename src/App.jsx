@@ -4,6 +4,7 @@ import './App.css'
 import { useDispatch } from 'react-redux'
 import { login, logout } from './store/authSlice'
 import { Footer, Headers } from './components'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   const [Loading, setLoading] = useState(true)
@@ -26,6 +27,7 @@ function App() {
     <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
       <div className='w-full block'>
         <Headers />
+        <Outlet />
         <Footer />
       </div>
     </div>
