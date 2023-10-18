@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useCallback} from 'react'
+import { Button,RTEditor,Input,Select } from '.'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import blogService from '../appwrite/configuration'
@@ -91,7 +92,7 @@ function PostForm({ post }) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <RTEditor label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="w-1/3 px-2">
                 <Input

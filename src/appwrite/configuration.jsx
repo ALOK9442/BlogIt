@@ -78,7 +78,7 @@ export class BlogService {
             return await this.databases.listDocuments(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                queries
+                queries,
             )
         } catch (error) {
             console.log(error)
