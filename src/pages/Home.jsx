@@ -1,39 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Container, PostCard } from '../components'
-import blogService from '../appwrite/configuration'
+import React, {useEffect, useState} from 'react'
+import appwriteService from "../appwrite/config";
+import {Container, PostCard} from '../components'
 
 function Home() {
     const [posts, setPosts] = useState([])
-    const navigate = useNavigate
 
     useEffect(() => {
-        blogService.getPosts().then((post) => {
-            if (post) {
-                setPosts(post.documents)
+        appwriteService.getPosts().then((posts) => {
+            if (posts) {
+                setPosts(posts.documents)
             }
         })
-            .catch((error) => {
-                console.log(error)
-            })
     }, [])
-    if (posts.length !== 0) {
-        return (
-            <div className='w-full py-8'>
-                <Container>
-                    <div className='flex felx-wrap'>
-                        {
-                            posts.map((post) => (
-                                <div key={post.$id} className='p-2 w-1/4'>
-                                    <PostCard {...post} />
-                                </div>
-                            ))
-                        }
-                    </div>
-                </Container>
-            </div>
-        )
-    } else {
+  
+    if (posts.length === 0) {
         return (
             <div className="w-full py-8 mt-4 text-center">
                 <Container>
@@ -48,6 +28,19 @@ function Home() {
             </div>
         )
     }
+    return (
+        <div className='w-full py-8'>
+            <Container>
+                <div className='flex flex-wrap'>
+                    {posts.map((post) => (
+                        <div key={post.$id} className='p-2 w-1/4'>
+                            <PostCard {...post} />
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </div>
+    )
 }
 
 export default Home

@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import { Editor } from '@tinymce/tinymce-react'
 import { Controller } from 'react-hook-form'
 
 
-function RTEditor({ name, control, label, defaultValue = "", ...rest }) {
+function RTEditor({ name, control, label, defaultValue = "" }) {
 
 
     return (
@@ -16,7 +16,7 @@ function RTEditor({ name, control, label, defaultValue = "", ...rest }) {
             <Controller
                 name={name || "content"}
                 control={control}
-                render={(({ field: { onChange } }) => (
+                render={({ field: { onChange } }) => (
                     <Editor
                         initialValue={defaultValue}
                         init={
@@ -39,7 +39,7 @@ function RTEditor({ name, control, label, defaultValue = "", ...rest }) {
                         }
                         onEditorChange={onChange}
                     />
-                ))}
+                )}
             />
         </div>
     )

@@ -1,9 +1,8 @@
 import React from 'react'
-import { logoutBtn, Logo, container } from "../index"
+import { LogoutBtn, Logo, Container } from "../index"
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-const Headers = () => {
+import { useNavigate,Link } from 'react-router-dom'
+function Headers (){
 
     const authStatus = useSelector((state) => state.auth.status)
 
@@ -41,12 +40,12 @@ const Headers = () => {
 
     return (
         <Headers className='py-3 shadow bg-gray-500'>
-            <container>
+            <Container>
                 <nav className='flex'>
                     <div className='mr-4'>
-                        <link to='/'>
+                        <Link to='/'>
                             <Logo width = '70px' />
-                        </link>
+                        </Link>
                     </div>
                     <ul className='flex ml-auto'>
                     {
@@ -64,12 +63,12 @@ const Headers = () => {
                     }
                     {authStatus&&(
                         <li>
-                            <logoutBtn/>
+                            <LogoutBtn/>
                         </li>
                     )}
                     </ul>
                 </nav>
-            </container>
+            </Container>
         </Headers>
     )
 }

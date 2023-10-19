@@ -1,13 +1,14 @@
 import React from 'react'
 
-const Button = ({
+function Button ({
     children,
     type= "button",
     bgColor = "bg-blue-600",
     textColor="text-white",
     className ="",
     ...props
-}) => {
+})
+{
   return (
     <button className={`px-4 py-2 rounded ${type} ${bgColor} ${textColor} ${className}`}{...props}>
         {children}
