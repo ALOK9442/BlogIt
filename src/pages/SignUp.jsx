@@ -4,7 +4,7 @@ import SignUp from '../components/Signup'
 function Signup() {
   return (
     <div className='py-8'>
-        <SignUp />
+    <SignUp/>
     </div>
   )
 }
