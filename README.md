@@ -25,6 +25,7 @@ Follow these steps to set up and run the Blogit project locally:
 
 Copy code:
 git clone https://github.com/your-username/blogit.git
+
 <p>cd blogit</p>
 
 Install dependencies:
